@@ -7,6 +7,12 @@
         // Images for Header
         let nextslideindex = 0;
         const busImg = ["yellow-bus.png", "blue-bus.png", "red-bus.jpg"];
+        const headerBusImg = document.createElement('img');
+        headerBusImg.src = `img/${busImg[nextslideindex]}`;
+        headerBusImg.style.marginLeft = "20px";
+        headerBusImg.style.height = "60px";
+        headerBusImg.alt = "Bus";
+        headerBusImg.id = "headerBusImg";
 
     // Nav List 
     const navElement = document.querySelector('nav');
@@ -19,16 +25,14 @@
     // Content Headers    
     const contentHeaders = document.querySelectorAll('h2');
 
+    // Destination Content
+    const destinationHeaders = document.querySelectorAll('h4');
+    const destinationBtns = document.querySelectorAll('.destination .btn');
+
 // EventListeners
 
     // load - On load add Bus Image to Header
     window.addEventListener('load', (event) => {
-        const headerBusImg = document.createElement('img');
-        headerBusImg.src = `img/${busImg[nextslideindex]}`;
-        headerBusImg.style.marginLeft = "20px";
-        headerBusImg.style.height = "60px";
-        headerBusImg.alt = "Bus";
-        headerBusImg.id = "headerBusImg";
         headerText.append(headerBusImg);
     });
 
@@ -82,7 +86,7 @@
             dropDiv.style.textAlign = "center";
             dropDiv.className = "droptarget";
             dropDiv.id = "drop" + i
-            e.appendChild(dropDiv);
+            e.append(dropDiv);
         });
         
     headerBusImg.addEventListener("drag", function(e) {
@@ -105,6 +109,29 @@
             }
         });
 
+    // focus and blur
+    destinationBtns.forEach((e, i) => {
+        e.id = "destinationBtn" + i;
+
+        // Create Form for name
+        const addForm = document.createElement('form');
+        addForm.id = "destinationForm" + i;
+        addForm.style.margin = "0 12px 15px";
+        e.parentNode.insertBefore(addForm, e);
+        const addFormInput = document.createElement('input');
+        addFormInput.type = "text";
+        addFormInput.placeholder = "Type your email here."
+        addForm.appendChild(addFormInput);
+
+        addForm.addEventListener('focus', (event) => {
+            event.target.style.background = '#17A2B8';    
+          }, true);
+          
+          addForm.addEventListener('blur', (event) => {
+            event.target.style.background = '';    
+          }, true);   
+    });
+    
 
 
 // Test for Errors

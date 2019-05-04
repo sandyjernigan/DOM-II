@@ -109,7 +109,7 @@
             }
         });
 
-    // focus and blur
+    // Destination Buttons - add Form input with Focus and Blur, then Click event on button
     destinationBtns.forEach((e, i) => {
         e.id = "destinationBtn" + i;
 
@@ -119,18 +119,27 @@
         addForm.style.margin = "0 12px 15px";
         e.parentNode.insertBefore(addForm, e);
         const addFormInput = document.createElement('input');
+        addFormInput.id = "destinationInput" + i;
         addFormInput.type = "text";
         addFormInput.placeholder = "Type your email here."
         addForm.appendChild(addFormInput);
 
+        // focus and blur Event
         addForm.addEventListener('focus', (event) => {
             event.target.style.background = '#17A2B8';    
-          }, true);
+        }, true);
           
-          addForm.addEventListener('blur', (event) => {
+        addForm.addEventListener('blur', (event) => {
             event.target.style.background = '';    
-          }, true);   
+        }, true);
+
+        // click 'Sign Me Up!' when email is inputed will return alert
+        e.addEventListener('click', event => {
+            if (addFormInput.value !== "") {alert(addFormInput.value)}
+            else {alert("Please enter your email address.")};
+        });
     });
+
     
 
 

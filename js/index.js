@@ -26,7 +26,7 @@
 
     // Nav List 
     const navElement = document.querySelector('nav');
-    const NavList = Array.from(document.getElementsByTagName("a"));
+    const NavList = document.getElementsByTagName("a");
 
     // Content Header
     const contentHeaderImg = document.querySelector('.intro img');
@@ -197,5 +197,7 @@
         reportEvent.textContent = "Double Click Event Occured.";
     });
 
-// Test for Errors
-// headerElement.style.backgroundColor = "red";
+// Stop the navigation from items from refreshing the page with `preventDefault()`
+    NavList.forEach((e, i) => {
+        preventDefault();
+    });

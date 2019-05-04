@@ -22,7 +22,7 @@
 	* [x] `load`
 	* [x] `focus`
 	* [x] `resize`
-	* [ ] `scroll`
+	* [x] `scroll`
 	* [ ] `select`
 	* [ ] `dblclick`
 

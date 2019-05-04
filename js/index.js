@@ -2,6 +2,7 @@
 
     // Header
     const headerElement = document.querySelector('header');
+    const headerDiv = document.querySelector('.nav-container');
     const headerText = document.querySelector('.logo-heading');
 
         // Images for Header
@@ -143,7 +144,7 @@
         });
     });
 
-    // Resize Event
+    // Resize Event - Reports the new window size in the footer content
         // Add Elements to Footer to Read out the new window size
         const windowHeightandWidth = document.createElement('p');
             footerSection.append(windowHeightandWidth);
@@ -168,7 +169,18 @@
         const widthOutput = document.querySelector('#width');
         heightOutput.textContent = window.innerHeight;
         widthOutput.textContent = window.innerWidth;
-      };
+    };
+
+    // Scroll Event
+        // Add Float div to Header
+        const reportScroll = document.createElement('div');
+        reportScroll.style.cssFloat = "right";
+        reportScroll.style.margin = "-20px 90px"
+        headerElement.append(reportScroll);
+      
+    window.onscroll = function(){
+        reportScroll.textContent = "Scroll Location: " + window.scrollY;
+    };
 
 
 // Test for Errors

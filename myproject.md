@@ -18,7 +18,7 @@
 	* [x] `mouseover`
 	* [x] `keydown`
 	* [x] `wheel`
-	* [ ] `drag / drop`
+	* [x] `drag / drop`
 	* [ ] `load`
 	* [ ] `focus`
 	* [ ] `resize`

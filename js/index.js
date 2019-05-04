@@ -12,6 +12,7 @@
         headerBusImg.style.marginLeft = "20px";
         headerBusImg.style.height = "60px";
         headerBusImg.alt = "Bus";
+        headerBusImg.id = "headerBusImg";
         headerText.append(headerBusImg);
 
     // Nav List 
@@ -21,6 +22,9 @@
     // Content Header
     const contentHeaderImg = document.querySelector('.intro img');
     const contentHeaderText = document.querySelector('.intro h2');
+
+    // Content Headers    
+    const contentHeaders = document.querySelectorAll('h2');
 
 // EventListeners
     // mouseover - When mouse is over the navagation list the elements change color
@@ -59,5 +63,42 @@
 
     }
 
+    // `drag / drop` - Bus Image from Header can be dragged and dropped into new divs
+        // make drop areas after each h2 tag
+        contentHeaders.forEach((e, i) => {
+            const dropDiv = document.createElement('div'); 
+            dropDiv.style.width = "120px";
+            dropDiv.style.height = "40px";
+            dropDiv.style.cssFloat = "right";
+            dropDiv.style.border = "thin solid grey";
+            dropDiv.textContent = "Use the wheel to select a color and drop a Bus here!"
+            dropDiv.style.fontFamily = "'Roboto', sans-serif";
+            dropDiv.style.fontSize = "1.2rem";
+            dropDiv.style.textAlign = "center";
+            dropDiv.className = "droptarget";
+            dropDiv.id = "drop" + i
+            e.appendChild(dropDiv);
+        });
+        
+    headerBusImg.addEventListener("drag", function(e) {
+        e.dataTransfer.setData("text", e.target.id);
+        headerText.textContent = "Fun Bus is On the Go ...";
+    });
+        
+        /* Events fired on the drop target */
+        document.addEventListener("dragover", function(event) {
+            event.preventDefault();
+        });
+        
+        document.addEventListener("drop", function(e) {
+            e.preventDefault();
+            if ( event.target.className == "droptarget" ) {
+            let data = event.dataTransfer.getData("text");
+            event.target.textContent = "";
+            headerBusImg.style.height = "35px"
+            event.target.append(headerBusImg);
+            }
+        });
+
 // Test for Errors
-//headerElement.style.backgroundColor = "red";
+// headerElement.style.backgroundColor = "red";

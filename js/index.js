@@ -5,6 +5,12 @@
     const headerDiv = document.querySelector('.nav-container');
     const headerText = document.querySelector('.logo-heading');
 
+        // Add Float div to Header to Report Events
+        const reportEvent = document.createElement('div');
+        reportEvent.style.cssFloat = "right";
+        reportEvent.style.margin = "-20px 90px"
+        headerElement.append(reportEvent);
+
         // Images for Header
         let nextslideindex = 0;
         const busImg = ["yellow-bus.png", "blue-bus.png", "red-bus.jpg"];
@@ -171,15 +177,9 @@
         widthOutput.textContent = window.innerWidth;
     };
 
-    // Scroll Event
-        // Add Float div to Header
-        const reportScroll = document.createElement('div');
-        reportScroll.style.cssFloat = "right";
-        reportScroll.style.margin = "-20px 90px"
-        headerElement.append(reportScroll);
-      
+    // Scroll Event      
     window.onscroll = function(){
-        reportScroll.textContent = "Scroll Location: " + window.scrollY;
+        reportEvent.textContent = "Scroll Location: " + window.scrollY;
     };
 
 

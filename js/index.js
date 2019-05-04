@@ -7,13 +7,6 @@
         // Images for Header
         let nextslideindex = 0;
         const busImg = ["yellow-bus.png", "blue-bus.png", "red-bus.jpg"];
-        const headerBusImg = document.createElement('img');
-        headerBusImg.src = `img/${busImg[nextslideindex]}`;
-        headerBusImg.style.marginLeft = "20px";
-        headerBusImg.style.height = "60px";
-        headerBusImg.alt = "Bus";
-        headerBusImg.id = "headerBusImg";
-        headerText.append(headerBusImg);
 
     // Nav List 
     const navElement = document.querySelector('nav');
@@ -27,6 +20,18 @@
     const contentHeaders = document.querySelectorAll('h2');
 
 // EventListeners
+
+    // load - On load add Bus Image to Header
+    window.addEventListener('load', (event) => {
+        const headerBusImg = document.createElement('img');
+        headerBusImg.src = `img/${busImg[nextslideindex]}`;
+        headerBusImg.style.marginLeft = "20px";
+        headerBusImg.style.height = "60px";
+        headerBusImg.alt = "Bus";
+        headerBusImg.id = "headerBusImg";
+        headerText.append(headerBusImg);
+    });
+
     // mouseover - When mouse is over the navagation list the elements change color
     navElement.addEventListener("mouseover", function( event ) {   
         // highlight the mouseenter target
@@ -99,6 +104,8 @@
             event.target.append(headerBusImg);
             }
         });
+
+
 
 // Test for Errors
 // headerElement.style.backgroundColor = "red";

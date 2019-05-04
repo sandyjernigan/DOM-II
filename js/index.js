@@ -33,6 +33,7 @@
     const contentHeaders = document.querySelectorAll('h2');
 
     // Destination Content
+    const destinationContent = document.querySelector('.content-pick');
     const destinationHeaders = document.querySelectorAll('h4');
     const destinationBtns = document.querySelectorAll('.destination .btn');
 
@@ -182,6 +183,11 @@
         reportEvent.textContent = "Scroll Location: " + window.scrollY;
     };
 
+    // Select Event - This will report any selection inside an input
+    destinationContent.addEventListener('select', function(event){
+        const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
+        reportEvent.textContent = `You selected: ${selection}`;        
+    });
 
 // Test for Errors
 // headerElement.style.backgroundColor = "red";

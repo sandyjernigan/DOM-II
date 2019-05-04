@@ -10,7 +10,7 @@
 
 * [x] Verify your compiler is working correctly by changing the `background-color` on the `html` selector to `red` in your `index.less` file.
 
-* [ ] Once you see the red screen, you can delete that style and you're ready to start on the next task
+* [x] Once you see the red screen, you can delete that style and you're ready to start on the next task
 
 ## Task 2: Create Unique Event Listeners
 

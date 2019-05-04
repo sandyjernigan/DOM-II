@@ -29,6 +29,9 @@
     const destinationHeaders = document.querySelectorAll('h4');
     const destinationBtns = document.querySelectorAll('.destination .btn');
 
+    // Footer
+    const footerSection = document.querySelector('footer p');
+
 // EventListeners
 
     // load - On load add Bus Image to Header
@@ -140,7 +143,32 @@
         });
     });
 
-    
+    // Resize Event
+        // Add Elements to Footer to Read out the new window size
+        const windowHeightandWidth = document.createElement('p');
+            footerSection.append(windowHeightandWidth);
+            footerSection.style.margin = "0";
+        const windowHeightSpan = document.createElement('span');
+            windowHeightSpan.textContent = "Window height: ";
+            windowHeightandWidth.append(windowHeightSpan);
+        const windowHeight = document.createElement('span');
+            windowHeight.id = "height";
+            windowHeightSpan.append(windowHeight);
+            windowHeight.textContent = window.innerHeight;
+        const windowWidthSpan = document.createElement('span');
+            windowWidthSpan.textContent = " Window width: ";
+            windowHeightandWidth.append(windowWidthSpan);
+        const windowWidth = document.createElement('span');
+            windowWidthSpan.append(windowWidth);
+            windowWidth.id = "width";
+            windowWidth.textContent = window.innerWidth;
+
+    window.onresize = function() {        
+        const heightOutput = document.querySelector('#height');
+        const widthOutput = document.querySelector('#width');
+        heightOutput.textContent = window.innerHeight;
+        widthOutput.textContent = window.innerWidth;
+      };
 
 
 // Test for Errors

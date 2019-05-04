@@ -21,7 +21,7 @@
 	* [x] `drag / drop`
 	* [x] `load`
 	* [x] `focus`
-	* [ ] `resize`
+	* [x] `resize`
 	* [ ] `scroll`
 	* [ ] `select`
 	* [ ] `dblclick`

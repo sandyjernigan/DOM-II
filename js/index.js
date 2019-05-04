@@ -1,5 +1,8 @@
 // Selectors for Elements
 
+    //Body
+    const bodyElement = document.querySelector('body');
+
     // Header
     const headerElement = document.querySelector('header');
     const headerDiv = document.querySelector('.nav-container');
@@ -8,7 +11,7 @@
         // Add Float div to Header to Report Events
         const reportEvent = document.createElement('div');
         reportEvent.style.cssFloat = "right";
-        reportEvent.style.margin = "-20px 90px"
+        reportEvent.style.margin = "-20px 85px"
         headerElement.append(reportEvent);
 
         // Images for Header
@@ -187,6 +190,11 @@
     destinationContent.addEventListener('select', function(event){
         const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
         reportEvent.textContent = `You selected: ${selection}`;        
+    });
+
+    // dblclick Event -- Double Click anywhere in window will report event in report div
+    window.addEventListener('dblclick', function (e) {
+        reportEvent.textContent = "Double Click Event Occured.";
     });
 
 // Test for Errors

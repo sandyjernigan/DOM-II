@@ -199,7 +199,7 @@
     });
 
     
-    // mouseup Event - Alerts on what button was pressed
+    // click Event - Alerts on what button was pressed
     window.addEventListener('click', e => {
         if (typeof e === 'object') {
             switch (e.button) {

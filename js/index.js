@@ -229,5 +229,16 @@ NavList.forEach((e) => {
     // Click Header Text and Fun Bus moves
     headerDiv.addEventListener('click', e => {
         e.stopPropagation();
-        TweenMax.to("#headerBusImg", 1, {x:200});
+        let tween = TweenMax.to("#headerBusImg", 2, {ease: Power1.easeOut, x:200});
+        
+        // reset after a short delay
+        setTimeout(function() {
+            TweenMax.to("#headerBusImg", 2, {ease: Power1.easeOut, x:2000});
+            
+            setTimeout(function() {
+                TweenMax.to("#headerBusImg", 1, {ease: Elastic.easeOut.config(1, 0.3), x:0});
+            }, 900);
+
+        }, 500);
+        
     });

@@ -149,8 +149,9 @@
 
         // click 'Sign Me Up!' when email is inputed will return alert
         e.addEventListener('click', event => {
-            if (addFormInput.value !== "") {alert(addFormInput.value)}
-            else {alert("Please enter your email address.")};
+            if (addFormInput.value !== "") {reportEvent.textContent += addFormInput.value}
+            else {reportEvent.textContent += "Please enter your email address."};
+            event.stopPropagation();
         });
     });
 
@@ -197,7 +198,27 @@
         reportEvent.textContent = "Double Click Event Occured.";
     });
 
+    
+    // mouseup Event - Alerts on what button was pressed
+    window.addEventListener('click', e => {
+        if (typeof e === 'object') {
+            switch (e.button) {
+              case 0:
+                reportEvent.textContent = 'Left button clicked.';
+                break;
+              case 1:
+                reportEvent.textContent = 'Middle button clicked.';
+                break;
+              case 2:
+                reportEvent.textContent = 'Right button clicked.';
+                break;
+              default:
+                reportEvent.textContent = `Unknown button code: ${btnCode}`;
+            }
+          }
+    });
+
 // Stop the navigation from items from refreshing the page with `preventDefault()`
-    NavList.forEach((e, i) => {
+    NavList.forEach((e) => {
         preventDefault();
     });

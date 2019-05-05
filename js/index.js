@@ -6,7 +6,7 @@
     // Header
     const headerElement = document.querySelector('header');
     const headerDiv = document.querySelector('.nav-container');
-    const headerText = document.querySelector('.logo-heading');
+    const headerText = document.querySelector('h1');
 
         // Add Float div to Header to Report Events
         const reportEvent = document.createElement('div');
@@ -26,7 +26,7 @@
 
     // Nav List 
     const navElement = document.querySelector('nav');
-    const NavList = document.getElementsByTagName("a");
+    const NavList = document.querySelectorAll("a");
 
     // Content Header
     const contentHeaderImg = document.querySelector('.intro img');
@@ -71,7 +71,7 @@
     };
 
     // wheel - Changes the image of the bus which was added to the Header
-    headerElement.onwheel = function(event) {
+    headerBusImg.onwheel = function(event) {
         event.preventDefault(); //disable default wheel action of scrolling page
         
         let wheelevent = event.detail ? event.detail*(-120) : event.wheelDelta;
@@ -149,8 +149,8 @@
 
         // click 'Sign Me Up!' when email is inputed will return alert
         e.addEventListener('click', event => {
-            if (addFormInput.value !== "") {reportEvent.textContent += addFormInput.value}
-            else {reportEvent.textContent += "Please enter your email address."};
+            if (addFormInput.value !== "") {reportEvent.textContent += " " + addFormInput.value}
+            else {reportEvent.textContent = "Please enter your email address."};
             event.stopPropagation();
         });
     });
@@ -204,7 +204,7 @@
         if (typeof e === 'object') {
             switch (e.button) {
               case 0:
-                reportEvent.textContent = 'Left button clicked.';
+                reportEvent.textContent = 'Left button clicked a ' + e.target.nodeName;
                 break;
               case 1:
                 reportEvent.textContent = 'Middle button clicked.';
@@ -219,6 +219,15 @@
     });
 
 // Stop the navigation from items from refreshing the page with `preventDefault()`
-    NavList.forEach((e) => {
-        preventDefault();
+NavList.forEach((e) => {
+    e.addEventListener("click", event => {
+        event.preventDefault();
+}, false)});    
+
+// [GSAP](https://greensock.com/) animations
+
+    // Click Header Text and Fun Bus moves
+    headerDiv.addEventListener('click', e => {
+        e.stopPropagation();
+        TweenMax.to("#headerBusImg", 1, {x:200});
     });
